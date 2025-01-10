@@ -1,0 +1,38 @@
+<%- include("partials/header.ejs") %>
+
+    <div class="container">
+        <div class="container col-xxl-8 px-4 pb-5">
+          <form action="/sort" method="post">
+            <select name="sort" id="sort-option"> <!-- Para cuendo eliga una opcion se quede en esa y no cambie al original -->
+              <option value="title" <%= selectedOption === 'title' ? 'selected' : '' %>>Title</option> <!-- Si se selecciona la opcion queda asi, si no se busca otro -->
+              <option value="review_date" <%= selectedOption === 'review_date' ? 'selected' : '' %>>Recent</option>
+              <option value="rating" <%= selectedOption === 'rating' ? 'selected' : '' %>>Rating</option>
+            </select>
+            <input type="submit" value="Go">
+          </form>
+
+            <% for(let book of data){%>
+            <div class="row align-items-start py-5">
+              <div class="col-10 col-sm-8 col-lg-6">
+                <img src="https://covers.openlibrary.org/b/isbn/<%= book.isbn_code %>-L.jpg" class="d-block img-fluid cover-position" alt="Bootstrap Themes" loading="lazy">
+              </div>
+              <div class="col-lg-6">
+                <h1 class="text-body-emphasis lh-1 mb-3"> <%= book.title %> </h1>
+                <p class="text-body-emphasis lh-1 mb-3" style="font-size: 20px;">By <%= book.author %></p>
+                <p class="lead width-review"><strong><u>Review</u></strong>: <%= book.review_text %> </p>
+                <p class="lead"><strong><u>Review Date</u></strong>: <%= book.review_date %></p>
+                <p class="lead"><strong><u>Rating</u></strong>: <%= book.rating %>/<strong>10</strong></p>
+                <div class="d-grid gap-2 d-md-flex justify-content-md-start"> <!-- Envio query con toda la informacion para luego procesarla en el backend -->
+                <a href="/book?title=<%= book.title %>&author=<%= book.author %>&coverISBN=<%= book.isbn_code %>&book_review=<%= book.review_text %>&book_rating=<%= book.rating %>"><button type="submit" class="btn btn-primary btn-lg px-4 me-md-2">Edit</button></a>
+                <form action="/delete" method="post">
+                  <input type="hidden" name="title" value="<%= book.title %>">
+                  <button type="submit" class="btn btn-danger btn-lg px-4">Delete</button>
+                </form> 
+                </div>
+              </div>
+            </div>
+            <% } %>
+          </div>
+    </div>
+
+    <%- include("partials/footer.ejs") %>

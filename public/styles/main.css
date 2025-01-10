@@ -1,0 +1,63 @@
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+header {
+    background-color: black;
+}
+
+.book-notes-word {
+    color: white;
+    font-weight: bold;
+}
+
+.home-word {
+    text-decoration: none; 
+    color: white;
+}
+
+.margin-book-word {
+    margin-left: 170px;
+}
+
+.margin-home-word {
+    margin-top: 8px;
+    margin-right: 50px;
+}
+
+.margin-add-word {
+    margin-top: 8px;
+    margin-right: 70px;
+}
+
+.card {
+    border: 1px solid black;
+}
+
+.tag {
+    display: inline-block;
+}
+
+.buttom {
+    margin-top: 20px;
+}
+
+.rating {
+    font-size: 20px;
+}
+
+.footer-center {
+    display: flex;
+    justify-content: center;
+}
+
+.width-review {
+    width: 500px;
+}
+
+.cover-position {
+    display: flex;
+    align-items: center;
+    height: auto;
+}

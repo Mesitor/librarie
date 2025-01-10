@@ -1,0 +1,35 @@
+<%- include("partials/header.ejs") %>
+
+<form action="/addBook" method="post">
+    <div class="container">
+        <div class="container col-xxl-5 px-4 py-3 vh-100">
+            <div class="row align-items-start py-4 pt-4">
+              <div class="col-lg-12">
+                <span class="lead"><strong>Title</strong></span>
+                <br>
+                <textarea name="title" cols="60" rows="1" class="lead" style="resize: none;"></textarea>
+                <span class="lead"><strong>Author</strong></span>
+                <br>
+                <textarea name="author" cols="60" rows="1" class="lead" style="resize: none;"></textarea>
+                <span class="lead"><strong>ISBN Code</strong></span>
+                <br>
+                <textarea name="isbn_code" cols="60" rows="1" class="lead" style="resize: none;"></textarea>
+                <span class="lead"><strong>Edit Review</strong>:</span>
+                <br>
+                <textarea name="review" cols="60" rows="10" class="lead" style="resize: none;"><%= locals.review %></textarea>
+                <br>
+                <span class="lead"><strong>Rating</strong>:</span>
+                <br>
+                <textarea name="rating" cols="2" rows="1" class="lead" style="resize: none;"> <%= locals.rating %> </textarea>
+                <span><strong class="rating ">/10</strong></span>
+                <!-- <p class="lead"><strong><u>Review Date</u></strong>: 02/10/2024</p> -->
+                <div class="d-grid gap-2 d-md-flex justify-content-md-start buttom">
+                  <button type="submit" class="btn btn-primary btn-lg px-4 me-md-2">Add Book</button>
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+<%- include("partials/footer.ejs") %>
